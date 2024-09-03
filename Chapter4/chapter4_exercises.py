@@ -89,3 +89,27 @@ comma_code(spam)
 
 # see coin_flip_streaks.py
 
+# Character Picure Grid:
+
+grid = [['.', '.', '.', '.', '.', '.'],
+        ['.', 'O', 'O', '.', '.', '.'],
+        ['O', 'O', 'O', 'O', '.', '.'],
+        ['O', 'O', 'O', 'O', 'O', '.'],
+        ['.', 'O', 'O', 'O', 'O', 'O'],
+        ['O', 'O', 'O', 'O', 'O', '.'],
+        ['O', 'O', 'O', 'O', '.', '.'],
+        ['.', 'O', 'O', '.', '.', '.'],
+        ['.', '.', '.', '.', '.', '.']]
+
+def picture_grid(grid):
+    # iterate over the length of the first list in the grid
+    for i in range(len(grid[0])):
+        # iterate over the length of the grid (the number of lists in the grid)
+        for j in range(len(grid)):
+            # print the value of the list at the current index of the inner loop and the current index of the outer loop
+            print(grid[j][i], end='')
+        # print a new line after the inner loop has finished
+        print()
+
+picture_grid(grid)
+
