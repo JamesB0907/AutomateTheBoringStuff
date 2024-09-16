@@ -19,5 +19,7 @@ if keyphrase in TEXT:
 else:
     print('There is no text for ' + keyphrase)  
 
+#Note: I could not manage to get this project to run properly. When I run in the windows command prompt it notifies me that it cannot find the module "pyperclip", despite having installed it. I will need to troubleshoot this issue further.
+
 # End of Project: Multi-Clipboard Automatic Message
 
