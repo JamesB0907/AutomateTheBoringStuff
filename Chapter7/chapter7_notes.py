@@ -288,3 +288,15 @@ phone_regex5 = re.compile(r'''(
 some_regex_value = re.compile('foo', re.IGNORECASE | re.DOTALL | re.VERBOSE)
 
 # Project: Phone Number and Email Address Extractor
+
+# See phone_and_email.py for the project
+
+# Summary:
+
+    # Regular expressions are a powerful tool for matching text patterns
+    # The re.compile() function returns Regex objects
+    # Regex objects have a search() method that searches the string it is passed for any matches to the regex
+    # The search() method will return None if no text is found
+    # Regex objects have a findall() method that will return all matches in a list
+    # Regex objects have search() and findall() methods that will return Match objects
+    # Match objects have group() method that will return the actual matched text
