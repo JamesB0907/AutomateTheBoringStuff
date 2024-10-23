@@ -39,5 +39,33 @@ print(f'Your age is {age}.')
 
 import pyinputplus as pyip
 
-response = pyip.inputNum()
+response = pyip.inputNum('Enter an integer: ')
+print(type(response))
 
+# The min, max, greaterThan, and lessThan Keyword Arguments:
+
+response2 = pyip.inputNum('Enter num: ', min=4)
+#If you input '3', you will get a prompt to enter a number greater than 4.
+response3 = pyip.inputNum('Enter num: ', greaterThan=4)
+#If you input '4', you will get a prompt to enter a number greater than 4.
+response4 = pyip.inputNum('Enter num: ', min=4, lessThan=6)
+#If you input '6', you will get a prompt to enter a number less than 6.
+
+# The blank Keyword Argument:
+
+response5 = pyip.inputNum('Enter num: ', blank=True)
+#If you input nothing, the program will accept it.
+
+# The limit, timeout, and default Keyword Arguments:
+
+response6 = pyip.inputNum(limit=2)
+# Only two tries are allowed.
+response7 = pyip.inputNum(timeout=10)
+# The user has 10 seconds to enter a number.
+response8 = pyip.inputNum('Enter num: ', default=0)
+# If the user enters nothing, 0 will be the default value.
+
+# The allowRegexes and blockRegexes Keyword Arguments:
+
+response9 = pyip.inputNum(allowRegexes=[r'(I|V|X|L|C|D|M)+', r'zero'])
+# The user can enter Roman numerals or the word 'zero'.
