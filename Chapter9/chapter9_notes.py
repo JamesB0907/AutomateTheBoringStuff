@@ -44,5 +44,19 @@
 
 # Handling Absolute and Relative Paths:
 
+# is_absolute() will return True if the path is an absolute path and False if it is a relative path.
+
+# Using Path.cwd() will return the current working directory as a Path object.
+
+# You can even use this to splice your current absolute path with a new relative path.
+
+# Other useful function of the os.path module:
+
+    # os.path.abspath() will return a string of the absolute path of the argument.
+    # os.path.isabs() will return True if the argument is an absolute path and False if it is a relative path.
+    # os.path.relpath() will return a string of a relative path from the start path to the end path.
+
+# Getting the Parts of a File Path:
+
 
 
