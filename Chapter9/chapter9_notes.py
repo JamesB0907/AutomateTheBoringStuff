@@ -58,5 +58,30 @@
 
 # Getting the Parts of a File Path:
 
+# Given a Path object, you can extract the file path's different parts with several attributes:
+
+    # .drive will return the drive letter or root folder of the path.
+    # .root will return the root folder of the path.
+    # .anchor will return the concatenation of the drive and root.
+    # .parents will return a sequence of the path's ancestors.
+    # .name will return the file or folder name at the end of the path.
+    # .stem will return the file name without the suffix.
+    # .suffix will return the file name's extension.
+    # .anchor will return the concatenation of the drive and root.
+
+# .parents can be indexed to get the parent folder of the path.
+
+# Path.cwd().parents[0] will return the parent folder of the current working directory.
+    # ie: Something like Path.cwd().parents[6] will retrn a parent folder six levels up from the current working directory.
+
+# os.path.basename() will return the file name and extension of the argument.
+
+# os.path.split() will return a tuple of the argument's directory and file name.
+    # ie: os.path.split('C:\\Users\\Al\\Documents\\example.txt') will return ('C:\\Users\\Al\\Documents', 'example.txt')
+
+# (*i still don't understand the difference between a tuple and a list)
+
+# os.path.dirname() will return the directory part of the argument.
+    # ie: os.path.dirname('C:\\Users\\Al\\Documents\\example.txt') will return 'C:\\Users\\Al\\Documents'
 
 
