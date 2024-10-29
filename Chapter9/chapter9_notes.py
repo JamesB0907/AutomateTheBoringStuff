@@ -84,4 +84,118 @@
 # os.path.dirname() will return the directory part of the argument.
     # ie: os.path.dirname('C:\\Users\\Al\\Documents\\example.txt') will return 'C:\\Users\\Al\\Documents'
 
+# Finding File Sizes and Folder Contents:
+
+# os.path.getsize() will return the size of the file in bytes.
+# os.listdir() will return a list of strings of filenames in the argument's directory.
+
+import os
+from pathlib import Path, WindowsPath
+
+total_size = 0
+for filename in os.listdir('C:\\Windows\\System32'):
+    total_size = total_size + os.path.getsize(os.path.join('C:\\Windows\\System32', filename))
+print(str(round(total_size / 1e+9, 2)) + ' GB')
+
+# Modifying a List of Files Using Glob Patterns:
+
+# The glob module provides a function for making file lists from directory wildcard searches.
+
+p = Path('C:/Users/Al/Documents')
+p.glob('*')
+# <generator object Path.glob at 0x0000021D3D3D3F90>
+list(p.glob('*')) # Returns a list from the generator.
+[WindowsPath('C:/Users/Al/Desktop/1.png'), WindowsPath('C:/Users/Al/Desktop/2.png'), WindowsPath('C:/Users/Al/Desktop/3.png'),
+# ---snip---
+WindowsPath('C:/Users/Al/Desktop/zzz.txt')]
+
+# * return all files in the directory
+
+# You can also use complex expressions:
+
+list(p.glob('*.txt')) # List all files with .txt extension
+
+# The ? character will match any single character:
+
+list(p.glob('project?.docx'))
+[WindowsPath('C:/Users/Al/Documents/project1.docx'), WindowsPath('C:/Users/Al/Documents/project2.docx')] # etc...
+
+# You can combine the * and ? characters to match multiple characters:
+
+list(p.glob('*.?x?'))
+[WindowsPath('C:/Users/Al/Desktop/calc.exe'), WindowsPath('C:/Users/Al/Desktop/notes.txt'), WindowsPath('C:/Users/Al/Desktop/zzz.txt')]
+
+# Creating a loop with the glob() method:
+p = Path('C:/Users/Al/Desktop')
+for textFilePathObj in p.glob('*.txt'):
+    print(textFilePathObj) # Prints the Path object as a string.
+    # Do something with the text file.
+
+# C:/Users/Al/Desktop/foo.txt
+# C:/Users/Al/Desktop/spam.txt
+# C:/Users/Al/Desktop/zzz.txt
+
+# Checking Path Validity:
+
+    # os.path.exists() will return True if the file or folder exists.
+    # os.path.isfile() will return True if the argument is a file.
+    # os.path.isdir() will return True if the argument is a folder.
+
+win_dir = Path('C:/Windows')
+not_exists_dir = Path('C:/ThisFolderDoesNotExist')
+calc_file = Path('C:/Windows/System32/calc.exe')
+win_dir.exists()
+# True
+win_dir.is_dir()
+# True
+not_exists_dir.exists()
+# False
+calc_file.exists()
+# True
+calc_file.is_file()
+# True
+
+# These methods can be used to check if a file or folder exists before opening it.
+
+# You can also determine things like if a drive is DVD or Flash Drive is attached:
+
+d_drive = Path('D:/')
+d_drive.exists()
+# False
+
+# The File Reading/Writing Process:
+
+# Python allows you the ability to read certain files with simple methods
+
+# Binary files are scrambled text files that are not human readable. They are used for things like images, videos, and executables.
+
+# The write_text() method will write a string to a file.
+
+from pathlib import Path
+p = Path('C:/Users/Al/Desktop/hello.txt')
+p.write_text('Hello, world!')
+# 13
+p.read_text
+# 'Hello, world!'
+
+# These Path objects only allow limited interactions:
+
+    # open() function returns a file object
+    # read() method reads the file
+    # write() method writes to the file
+
+# These are very similar to terminal commands (like SHELL or BASH)
+
+# Opening Files with the open() Function:
+
+# The open() function will return a file object that can be used to read or write to the file.
+
+hello_file = open(Path.home() / 'hello.txt')
+
+# It can also accept strings:
+hello_file = open('C:\\Users\\your_home_folder\\hello.txt')
+
+# MacOS version:
+hello_file = open('/Users/your_home_folder/hello.txt')
+
 
