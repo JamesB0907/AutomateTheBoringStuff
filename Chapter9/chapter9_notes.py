@@ -198,4 +198,104 @@ hello_file = open('C:\\Users\\your_home_folder\\hello.txt')
 # MacOS version:
 hello_file = open('/Users/your_home_folder/hello.txt')
 
+# Reading the Content of Files:
+
+# Entering this in the console will return the contents of the file:
+hello_content = hello_file.read()
+hello_content
+# 'Hello, world!'
+
+# The readlines() method will return a list of strings of the file's content:
+
+# Say we have a file called 'sonnet29.txt' with the following content:
+'''
+    When, in disgrace with fortune and men's eyes,
+    I all alone beweep my outcast state,
+    And trouble deaf heaven with my bootless cries,
+    And look upon myself and curse my fate,
+'''
+
+sonnet_file = open(Path.home() / 'sonnet29.txt')
+sonnet_file.readlines()
+# ['When, in disgrace with fortune and men\'s eyes,\n', 'I all alone beweep my outcast state,\n', 'And trouble deaf heaven with my bootless cries,\n', 'And look upon myself and curse my fate,\n']
+
+# Writing to Files:
+
+bacon_file = open('bacon.txt', 'w')
+bacon_file.write('Hello, world!\n')
+# 13
+bacon_file.close()
+bacon_file = open('bacon.txt', 'a')
+bacon_file.write('Bacon is not a vegetable.')
+# 25
+bacon_file.close()
+bacon_file = open('bacon.txt')
+content = bacon_file.read()
+bacon_file.close()
+print(content)
+# Hello, world!
+# Bacon is not a vegetable.
+
+# The 'w' argument will overwrite the file, while the 'a' argument will append to the file.
+
+# Saving Variables with the Shelve Module:
+
+# shelve module will allow you to save variables to binary shelf files.
+
+# Binary shelf files are binary files that can be read and written to. On the hard drive they are stored as .bak, .dat, and .dir files.
+
+import shelve
+shelve_file = shelve.open('mydata')
+cats = ['Zophie', 'Pooka', 'Simon']
+shelve_file['cats'] = cats
+shelve_file.close()
+
+# In the above sequence, the shelve file is opened, a list of cats is created, and the list is saved to the shelve file.
+
+# The shelve file can be opened and read like a dictionary:
+
+shelve_file = shelve.open('mydata')
+shelve_file['cats']
+# ['Zophie', 'Pooka', 'Simon']
+shelve_file.close()
+
+# Saving Variables With the pprint.pformat() Function:
+
+# The pprint.pformat() function will return a string of the object's data structure.
+
+import pprint
+cats = [{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka', 'desc': 'fluffy'}]
+pprint.pformat(cats)
+# "[{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka', 'desc': 'fluffy'}]"
+file_obj = open('myCats.py', 'w')
+file_obj.write('cats = ' + pprint.pformat(cats) + '\n')
+file_obj.close()
+
+# This way when the data is read back in, it will be in the same format as it was saved.
+
+# You can even generate a Python file with the data structure in it.
+
+import myCats
+myCats.cats
+# [{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka', 'desc': 'fluffy'}]
+myCats.cats[0]
+# {'name': 'Zophie', 'desc': 'chubby'}
+myCats.cats[0]['name']
+# 'Zophie'
+
+# The myCats.py file will contain the following:
+
+'''
+cats = [{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka', 'desc': 'fluffy'}]
+'''
+
+# Project: Generating Random Quiz Files:
+
+# Say you have to generate 35 different quizzes with 50 multiple choice questions. Each quiz will have the questions in a different order, and the answer choices will also be in a different order.
+
+# see random_quiz_generator.py for the code.
+
+# Project Updatable Multi-Clipboard:
+
+# Say you have to copy and paste multiple things at once. You can use the pyperclip module to store multiple strings in the clipboard.
 
