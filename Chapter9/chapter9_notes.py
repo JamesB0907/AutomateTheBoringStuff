@@ -299,3 +299,12 @@ cats = [{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka', 'desc': 'fluffy'
 
 # Say you have to copy and paste multiple things at once. You can use the pyperclip module to store multiple strings in the clipboard.
 
+# See mcb.pyw for the code.
+
+# Summary:
+
+    # The os module provides functions for working with files and folders.
+    # The pathlib module provides classes for working with file paths.
+    # Reading and writing to files is done with the open() function.
+    # The shelve module can store variables in binary shelf files.
+    # The pprint module can store variables in a string format.
